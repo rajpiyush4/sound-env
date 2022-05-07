@@ -1,0 +1,8 @@
+
+@keyframes animate {
+
+    100% {
+        transform: translate(-120%, 0);
+    }
+}
+

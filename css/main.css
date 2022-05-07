@@ -1,0 +1,440 @@
+@import url('https://fonts.googleapis.com/css2?family=Monoton&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Syne&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+:root {
+
+    --navPagefontcolor: white;
+    --navHeight: 5rem;
+    --bodyColor: whitesmoke;
+    --primaryColor: #212121;
+    --navPageColor: #212121;
+    --boxShadow: inset 5px 5px 5px rgba(0, 0, 0, 0.05),
+        inset -5px -5px 5px rgba(255, 255, 255, 0.5),
+        5px 5px 5px rgba(0, 0, 0, 0.05),
+        -5px -5px 5px rgba(255, 255, 255, 0.5);
+
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+body {
+    min-height: 100vh;
+    background-color: var(--bodyColor);
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    font-family: 'Syne', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    background-image: url("../svg/bg.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 999;
+    transition: 0.4s;
+    /* backdrop-filter: blur(3px); */
+    /* background-color: var(--bodyColor); */
+}
+
+header #logo {
+    margin-left: 1.5rem;
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--primaryColor);
+}
+
+header #notepad {
+    width: 40px;
+    height: 40px;
+    background-image: url("/soul/svg/notepad.svg");
+    background-size: cover;
+    margin-right: 3.5rem;
+    margin-top: 1rem;
+}
+
+#menu {
+    position: fixed;
+    top: 2rem;
+    right: 1.5rem;
+    z-index: 1000;
+    border-radius: 50%;
+    transition: 0.5s;
+
+}
+
+#menu1 {
+    width: 1.3rem;
+    height: 2px;
+    background-color: var(--primaryColor);
+    border-radius: 20px;
+    transition: 0.2s 0.2s ease-out;
+
+}
+
+#menu2 {
+    margin: .3rem 2px 0 0;
+    width: 1rem;
+    height: 2px;
+    background-color: var(--primaryColor);
+    border-radius: 20px;
+    transition: 0.2s 0.2s ease-out;
+
+}
+
+.rotate-menu {
+    transform: rotateZ(180deg);
+}
+
+.rotate1 {
+    width: 1rem !important;
+    transform: translate3d(0px, 4px, 0px) rotateZ(45deg);
+
+}
+
+.rotate2 {
+    width: 1rem;
+    transform: translate3d(0px, -4px, 0px) rotateZ(-45deg);
+
+}
+
+#nav-page1 {
+    position: fixed;
+    width: 60%;
+    height: 70vh;
+    background-color: var(--navPageColor);
+    z-index: 1000;
+    transition: 0.4s;
+    transform: translateY(-100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: clamp(2rem, 4.5vw, 6rem);
+    font-weight: 600;
+    color: var(--navPagefontcolor);
+    font-family: 'Monoton', cursive;
+    letter-spacing: 3px;
+
+}
+
+#nav-page1 ul {
+    list-style: none;
+}
+
+#nav-page1 ul li {
+    position: relative;
+    padding-bottom: 3rem;
+}
+
+.line {
+    position: absolute;
+    bottom: 20%;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background-color: var(--navPagefontcolor);
+    transition: 0.5s;
+    border-radius: 10px;
+}
+
+#nav-page1 ul li:hover .line {
+    width: 80%;
+}
+
+#nav-page2 {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 40%;
+    height: 70vh;
+    background-color: var(--navPageColor);
+    z-index: 1000;
+    transition: .8s;
+    color: var(--navPagefontcolor);
+    transform: translateY(-100%);
+}
+
+.toggle {
+    transform: translate(0, 0) !important;
+}
+
+main {
+    padding: 1.5rem;
+    min-height: 100vh;
+}
+
+#title-container {
+    height: 100vh;
+    text-align: center;
+    /* filter: brightness(60%); */
+    position: sticky;
+    top: 0%;
+    /* border: #212121 2px solid; */
+}
+
+.title1 {
+    position: relative;
+    top: 3rem;
+    left: 0;
+    font-size: clamp(10rem, 9.5vw, 10rem);
+    font-weight: 600;
+    color: white;
+    font-family: 'Monoton', cursive;
+}
+
+.title2 {
+    position: relative;
+    transform: translate(0, 0rem);
+    font-size: clamp(2rem, 5.5vw, 7rem);
+    letter-spacing: 3px;
+    font-weight: 500;
+    color: white;
+    font-family: 'Monoton', cursive;
+}
+
+.title3 {
+    position: relative;
+    width: clamp(6rem,70%,20rem);
+    top: 4rem;
+    transform: translate(0, 5rem);
+    font-size: clamp(0.5rem, 1vw, 5rem);
+    letter-spacing: 3px;
+    font-weight: 500;
+    color: var(--primaryColor);
+    /* font-family: 'Monoton', cursive; */
+
+}
+
+.reveal-parent {
+    display: inline-block;
+    overflow: hidden;
+    transition: 0.5s;
+}
+
+.reveal {
+    display: inline-block;
+    transform: translate( 23rem,0);
+    transition: 0.5s;
+}
+/* .reveal2{
+    transform: translate(0,13rem);
+} */
+.revealed {
+    transform: translate(0, 0) !important;
+}
+
+#music-container {
+    position: relative;
+    background-color: var(--bodyColor);
+}
+
+#sounds {
+    margin: auto;
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.box {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    margin: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+
+}
+
+.icon {
+    width: 60px;
+    height: 60px;
+    opacity: 0.5;
+}
+
+.icon-opacity {
+    opacity: 0.7;
+}
+
+.on {
+    border: 4px solid hsla(205, 74%, 85%, 0.5);
+}
+
+.pic {
+    width: 40%;
+    position: absolute;
+    top: 20%;
+    right: 6rem;
+}
+
+.inputvol {
+    position: absolute;
+    top: 70%;
+    opacity: 0.5;
+    transform: scale(0.7, 0.7);
+    display: none;
+}
+
+.inp-display {
+    display: block;
+}
+
+#time {
+    position: fixed;
+    display: flex;
+    gap: 140px;
+    color: #212121;
+    z-index: 10;
+    right: 0;
+    bottom: 0;
+    transform: translate(-50%, -50%);
+    color: #9a9a9a;
+    font-family: 'Monoton', cursive;
+    transform: scale(0.5, 0.5);
+}
+
+#time .circle {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+#time .circle svg {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    transform: rotate(270deg);
+}
+
+#time .circle svg circle {
+
+    width: 100%;
+    height: 100%;
+    fill: transparent;
+    stroke: hsl(0, 0%, 76%);
+    stroke-width: 4;
+    transform: translate(5px, 5px);
+}
+
+#time .circle svg circle:nth-child(2) {
+    stroke: var(--clr);
+    stroke-dasharray: 440;
+
+}
+
+#time div {
+    position: absolute;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.4em;
+    /* border:wheat 3px solid; */
+}
+
+.dots {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 8;
+}
+
+.dots::before {
+    content: "";
+    position: absolute;
+    width: 15px;
+    top: -3px;
+    height: 15px;
+    background-color: var(--clr);
+    border-radius: 50%;
+    box-shadow: 0 0 20px var(--clr),
+        0 0 60px var(--clr);
+}
+
+#container {
+    position: absolute;
+    top: 5rem;
+    left: 2rem;
+}
+
+#container .btn-outline {
+    position: absolute;
+    transform: translate(-15%, -20%);
+    display: inline-block;
+    width: clamp(10rem, 83.5vw, 48rem);
+    height: clamp(10rem, 39.5vw, 27rem);
+    border: 2px solid hsl(0, 0%, 23%);
+    border-radius: 10px;
+    transition: 0.5s;
+}
+
+#container .btn {
+    display: inline-block;
+    width: clamp(10rem, 83.5vw, 48rem);
+    height: clamp(10rem, 39.5vw, 27rem);
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: whitesmoke;
+    font-family: serif;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: var(--primaryColor);
+    transition: 0.5s;
+}
+
+#container:active .btn-outline {
+    transform: translate(7%, 0%);
+    opacity: 0;
+}
+
+#container:active .btn {
+    background-color: transparent;
+    color: #212121;
+}
+
+#btn-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    overflow-x: scroll;
+    padding: 20px;
+}
+
+.music-btn {
+    padding: 10px;
+    outline: none;
+    font-weight: 800;
+    opacity: 0.6;
+    border: none;
+    border-radius: 24px;
+    background: linear-gradient(145deg, #dddddd, #ffffff);
+    box-shadow: 7px 7px 14px #d5d5d5,
+        -7px -7px 14px #ffffff;
+    transition: 0.3s;
+
+}
+
+.music-btn:active {
+    box-shadow: none;
+    background: transparent;
+}
