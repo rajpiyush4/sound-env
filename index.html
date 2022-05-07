@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soul</title>
+</head>
+<link rel="stylesheet" href="./css/main.css">
+<link rel="stylesheet" href="./css/queries.css">
+<body>
+    <!-- timer -->
+    <div id="time">
+        <div class="circle" style="--clr:hsl(0, 0%, 60%);">
+            <div class="dots se_dots"></div>
+            <svg>
+                <circle cx="70" cy="70" r="70"></circle>
+                <circle cx="70" cy="70" r="70" stroke="green" id="ss"></circle>
+            </svg>
+            <div id="seconds">0</div>
+        </div>
+    </div>
+<!-- navpage -->
+    <div id="nav-page1">
+        <ul>
+            <li>HOME
+                <span class="line"></span>
+            </li>
+            <li>ABOUT
+                <span class="line"></span>
+            </li>
+            <li>MORE
+                <span class="line"></span>
+            </li>
+        </ul>
+    </div>
+    <div id="nav-page2"></div>
+
+    <!-- menu -->
+    <div id="menu">
+        <div id="menu1"></div>
+        <div id="menu2"></div>
+    </div>
+    <header>
+        <div id="logo">Soul</div>
+        <div id="notepad"></div>
+    </header>
+    <hr style="position:fixed;width: 100%;">
+    
+    <main>
+        <section id="title-container">
+            <!-- <div id="container">
+                <span class="btn-outline"></span>
+                <span class="btn"></span>
+        </div> -->
+           
+            <!-- <span class="reveal-parent title1">
+                <span class="reveal">S</span>
+            </span>
+            <span class="reveal-parent title2">
+                <span class="reveal">oul</span>
+            </span> -->
+            <span class="reveal-parent title3">
+                <span class="reveal">-Your digital place for focus.
+                    Mix different sounds and create your perfect
+                    sound environment to work and relax.</span>
+            </span>
+        </section>
+
+        <section id="music-container">
+            <div id="btn-container">
+                <button class="music-btn">relax</button>
+                <button class="music-btn">focus</button>
+                <button class="music-btn">productivity</button>
+                <button class="music-btn">study</button>
+                <button class="music-btn">random</button>
+            </div>
+            <div id="sounds"></div>
+        </section>
+    </main>
+
+    <script src="./js/script.js"></script>
+</body>
+</html>
