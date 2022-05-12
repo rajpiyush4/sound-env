@@ -208,6 +208,29 @@ let arr=[];
 
 
     }
+    
+      let line =$All(".line")
+    let box=$All(".box")
+
+    const observer=new IntersectionObserver(
+        entries =>{
+            entries.forEach(entry =>{
+                entry.target.classList.toggle("box-show", entry.isIntersecting)
+                
+            })
+            // entries.forEach(entry =>{
+            //     entry.target.classList.toggle("toggle", entry.isIntersecting)
+            // })
+        },
+        {
+            threshold: 0.7
+        }
+       
+    )
+    box.forEach(card => {
+        observer.observe(card)
+    })
+   
 
     let time = document.getElementById("time")
     let seconds = document.getElementById("seconds")
