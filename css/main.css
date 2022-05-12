@@ -260,7 +260,13 @@ main {
     justify-content: center;
     align-items: center;
     transition: 0.5s;
+    opacity: 0;
+    transform: translate(0,30%);
 
+}
+.box-show{
+    opacity: 1;
+    transform: translate(0,0);
 }
 
 .icon {
