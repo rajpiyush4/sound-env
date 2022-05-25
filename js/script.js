@@ -191,11 +191,13 @@ let arr=[];
         box.appendChild(inplabel)
         icon.addEventListener("click", () => {
             if (audio.paused) {
+
                 audio.play();
                 inplabel.classList.add("inp-display")
                 icon.classList.add("icon-opacity");
             }
             else if (audio.play) {
+                audio.load();
                 audio.pause();
                 inplabel.classList.remove("inp-display")
                 icon.classList.remove("icon-opacity");
@@ -314,6 +316,7 @@ let arr=[];
             for(let j=0; j<playlist[i].no.length;j++){
                 
                     if (arr[playlist[i].no[j]].paused) {
+                          arr[playlist[i].no[j]].load()
                           arr[playlist[i].no[j]].play();
                     inputvol[playlist[i].no[j]].classList.add("inp-display")
                     icon[playlist[i].no[j]].classList.add("icon-opacity");
