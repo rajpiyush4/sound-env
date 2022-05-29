@@ -178,6 +178,7 @@ let arr=[];
          arr.push(audio)
         audio.classList=`actuallysound`;
         let icon = document.createElement("img")
+        icon.setAttribute('loading','lazy')
         icon.src = i.icon;
         icon.classList = "icon";
         box.appendChild(icon)
