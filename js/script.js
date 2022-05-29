@@ -33,25 +33,25 @@ window.onload = () => {
 
     // let increase=1;
     //parallax
-    window.onscroll=()=>{
-        x=200;
+   // window.onscroll=()=>{
+       // x=200;
 
         // increase += 0.1;
         // if(increase>3){
         //     increase=1;
         // }
-        let y=window.pageYOffset;
+        //let y=window.pageYOffset;
         // titleContainer.style=`top:${y*0.7}px`
         // console.log(increase)
-        if (y >= x) {
-            header.style="background:whitesmoke"
-        }
-        else{
-            header.style="background:transparent"
-        }
+        //if (y >= x) {
+         //   header.style="background:whitesmoke"
+       // }
+        //else{
+         //   header.style="background:transparent"
+       // }
         // console.log(title3)
         // title3.style=`transform:scale(${increase},${increase})`
-    }
+   // }
 
     //for revealing animation
     
@@ -225,7 +225,7 @@ let arr=[];
             // })
         },
         {
-            threshold: 0.7
+            threshold: 0
         }
        
     )
