@@ -175,7 +175,8 @@ let arr=[];
         box.classList = "box";
         sounds.appendChild(box)
         let audio = document.createElement("audio")
-         arr.push(audio)
+        audio.setAttribute('preload','none')
+        arr.push(audio)
         audio.classList=`actuallysound`;
         let icon = document.createElement("img")
         icon.setAttribute('loading','lazy')
@@ -192,13 +193,13 @@ let arr=[];
         box.appendChild(inplabel)
         icon.addEventListener("click", () => {
             if (audio.paused) {
-
+                audio.load();
                 audio.play();
                 inplabel.classList.add("inp-display")
                 icon.classList.add("icon-opacity");
             }
             else if (audio.play) {
-                audio.load();
+                
                 audio.pause();
                 inplabel.classList.remove("inp-display")
                 icon.classList.remove("icon-opacity");
