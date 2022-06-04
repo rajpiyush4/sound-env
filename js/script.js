@@ -20,38 +20,10 @@ window.onload = () => {
         navPage1.classList.toggle("toggle")
         navPage2.classList.toggle("toggle")
 
-        if (navPage1.classList == "toggle") {
-            menuBar1.style = "background-color: white;"
-            menuBar2.style = "background-color: white;"
-        }
-
-        else {
-            menuBar1.style = "background-color: #212121;"
-            menuBar2.style = "background-color: #212121;"
-        }
     }
 
-    // let increase=1;
-    //parallax
-   // window.onscroll=()=>{
-       // x=200;
 
-        // increase += 0.1;
-        // if(increase>3){
-        //     increase=1;
-        // }
-        //let y=window.pageYOffset;
-        // titleContainer.style=`top:${y*0.7}px`
-        // console.log(increase)
-        //if (y >= x) {
-         //   header.style="background:whitesmoke"
-       // }
-        //else{
-         //   header.style="background:transparent"
-       // }
-        // console.log(title3)
-        // title3.style=`transform:scale(${increase},${increase})`
-   // }
+    
 
     //for revealing animation
     
@@ -168,15 +140,16 @@ window.onload = () => {
         }
 
     ]
-let arr=[];
+        let arr=[];
 
     for (const i of boxes) {
         let box = document.createElement("div");
         box.classList = "box";
+        // box.classList ="box-show"
         sounds.appendChild(box)
         let audio = document.createElement("audio")
-        audio.setAttribute('preload','none')
-        arr.push(audio)
+         arr.push(audio)
+         audio.setAttribute('preload','none')
         audio.classList=`actuallysound`;
         let icon = document.createElement("img")
         icon.setAttribute('loading','lazy')
@@ -193,13 +166,11 @@ let arr=[];
         box.appendChild(inplabel)
         icon.addEventListener("click", () => {
             if (audio.paused) {
-                audio.load();
                 audio.play();
                 inplabel.classList.add("inp-display")
                 icon.classList.add("icon-opacity");
             }
             else if (audio.play) {
-                
                 audio.pause();
                 inplabel.classList.remove("inp-display")
                 icon.classList.remove("icon-opacity");
@@ -212,9 +183,9 @@ let arr=[];
 
 
     }
-    
-      let line =$All(".line")
+    let line =$All(".line")
     let box=$All(".box")
+
 
     const observer=new IntersectionObserver(
         entries =>{
@@ -222,9 +193,7 @@ let arr=[];
                 entry.target.classList.toggle("box-show", entry.isIntersecting)
                 
             })
-            // entries.forEach(entry =>{
-            //     entry.target.classList.toggle("toggle", entry.isIntersecting)
-            // })
+
         },
         {
             threshold: 0
@@ -235,6 +204,7 @@ let arr=[];
         observer.observe(card)
     })
    
+
 
     let time = document.getElementById("time")
     let seconds = document.getElementById("seconds")
@@ -265,17 +235,16 @@ let arr=[];
 
     function startStop() {
         if (status) {
-
             interval = window.setInterval(start, 1000)
             status = false
-            document.querySelector(".circle").style="--clr:hsl(0, 0%, 40%)"
-            seconds.style="color:hsl(0, 0%, 40%)"
+            document.querySelector(".circle").style="--clr:#212121"
+            seconds.style="color:#212121"
         }
         else {
             clearInterval(interval);
             status = true
-            document.querySelector(".circle").style="--clr:hsl(0, 0%, 60%)"
-            seconds.style="color:hsl(0, 0%, 60%)"
+            document.querySelector(".circle").style="--clr:hsl(0, 0%, 96%)"
+            seconds.style="color:hsl(0, 0%, 96%)"
         }
     }
     time.addEventListener("click", startStop);
@@ -318,7 +287,6 @@ let arr=[];
             for(let j=0; j<playlist[i].no.length;j++){
                 
                     if (arr[playlist[i].no[j]].paused) {
-                          arr[playlist[i].no[j]].load()
                           arr[playlist[i].no[j]].play();
                     inputvol[playlist[i].no[j]].classList.add("inp-display")
                     icon[playlist[i].no[j]].classList.add("icon-opacity");
@@ -332,6 +300,7 @@ let arr=[];
             }
         }
     }
+
 
 
 }
