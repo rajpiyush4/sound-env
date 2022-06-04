@@ -13,7 +13,7 @@
     --navPagefontcolor: white;
     --navHeight: 5rem;
     --bodyColor: whitesmoke;
-    --primaryColor: #212121;
+    --primaryColor: whitesmoke;
     --navPageColor: #212121;
     --boxShadow: inset 5px 5px 5px rgba(0, 0, 0, 0.05),
         inset -5px -5px 5px rgba(255, 255, 255, 0.5),
@@ -28,14 +28,15 @@
 
 body {
     min-height: 100vh;
-    background-color: var(--bodyColor);
     scroll-behavior: smooth;
     overflow-x: hidden;
     font-family: 'Syne', sans-serif;
     -webkit-font-smoothing: antialiased;
-    background-image: url("../svg/bg.jpg");
+    /* background-image: url("../svg/bg.jpg");
     background-size: cover;
-    background-attachment: fixed;
+    background-attachment: fixed; */
+    background-color: #a7561c;
+   
 }
 
 header {
@@ -122,8 +123,9 @@ header #notepad {
     transition: 0.4s;
     transform: translateY(-100%);
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: flex-end;
     font-size: clamp(2rem, 4.5vw, 6rem);
     font-weight: 600;
     color: var(--navPagefontcolor);
@@ -150,6 +152,7 @@ header #notepad {
     background-color: var(--navPagefontcolor);
     transition: 0.5s;
     border-radius: 10px;
+   
 }
 
 #nav-page1 ul li:hover .line {
@@ -184,16 +187,15 @@ main {
     /* filter: brightness(60%); */
     position: sticky;
     top: 0%;
-    /* border: #212121 2px solid; */
+
 }
 
-.title1 {
+/* .title1 {
     position: relative;
     top: 3rem;
     left: 0;
     font-size: clamp(10rem, 9.5vw, 10rem);
     font-weight: 600;
-    color: white;
     font-family: 'Monoton', cursive;
 }
 
@@ -203,9 +205,8 @@ main {
     font-size: clamp(2rem, 5.5vw, 7rem);
     letter-spacing: 3px;
     font-weight: 500;
-    color: white;
     font-family: 'Monoton', cursive;
-}
+} */
 
 .title3 {
     position: relative;
@@ -216,7 +217,6 @@ main {
     letter-spacing: 3px;
     font-weight: 500;
     color: var(--primaryColor);
-    /* font-family: 'Monoton', cursive; */
 
 }
 
@@ -240,7 +240,7 @@ main {
 
 #music-container {
     position: relative;
-    background-color: var(--bodyColor);
+    background-color:#e0d49f;
 }
 
 #sounds {
@@ -263,16 +263,16 @@ main {
     opacity: 0;
     transform: translate(0,30%);
     border-radius: 4px;
-    background: #f3f2f2;
-    box-shadow:  5px 5px 10px #dbdada,
-             -5px -5px 10px #ffffff;
+    border-radius: 4px;
+    background: #e0d49f;
+    box-shadow:  5px 5px 10px #cabf8f,
+                 -5px -5px 10px #f6e9af;
 
 }
 .box-show{
     opacity: 1;
     transform: translate(0,0);
 }
-
 .icon {
     width: 60px;
     height: 60px;
@@ -315,7 +315,7 @@ main {
     right: 0;
     bottom: 0;
     transform: translate(-50%, -50%);
-    color: #9a9a9a;
+    color: whitesmoke;
     font-family: 'Monoton', cursive;
     transform: scale(0.5, 0.5);
 }
@@ -342,7 +342,7 @@ main {
     width: 100%;
     height: 100%;
     fill: transparent;
-    stroke: hsl(0, 0%, 76%);
+    stroke: hsl(0, 0%, 96%);
     stroke-width: 4;
     transform: translate(5px, 5px);
 }
@@ -437,10 +437,10 @@ main {
     opacity: 0.6;
     border: none;
     border-radius: 24px;
-    background: linear-gradient(145deg, #dddddd, #ffffff);
-    box-shadow: 7px 7px 14px #d5d5d5,
-        -7px -7px 14px #ffffff;
-    transition: 0.3s;
+    border-radius: 4px;
+    background: #e0d49f;
+    box-shadow:  5px 5px 10px #cabf8f,
+                 -5px -5px 10px #f6e9af;
 
 }
 
