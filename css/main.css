@@ -143,8 +143,10 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-color: var(--bodyColor);
     z-index: 999;
     transition: 0.4s;
+
 }
 
 header #logo {
@@ -488,7 +490,7 @@ header #notepad {
     text-align: center;
     z-index: 1000;
     color: white;
-    animation: popslide 4s forwards;
+    /* animation: popslide 4s forwards; */
 
 }
 
@@ -672,24 +674,23 @@ display: flex;
 font-size: 13px;
 justify-content: space-around;
 padding: 1rem 0 1rem 0;
-color: hsl(76, 26%, 35%);
+color: rgb(100, 112, 66);
 }
 .music-btn {
     padding: 10px;
     outline: none;
-    border: #212121 2px solid;
+    border: none;
     font-weight: 800;
     opacity: 0.6;
     border-radius: 24px;
     background: linear-gradient(315deg, #c2d297, #e7f9b4);
-    box-shadow: -5px -5px 17px #9dba86,
-        5px 5px 17px #ffffca;
+    box-shadow:  5px 5px 10px hsl(76, 26%, 55%),
+    -5px -5px 10px hsl(76, 26%, 75%);
 
 }
-
-.music-btn:active {
+.btn-border{
     box-shadow: none;
-    background: transparent;
+    border: #212121 2px solid;
 }
 
 footer{
