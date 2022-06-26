@@ -217,7 +217,7 @@ window.onload = () => {
                 audio.pause();
                 inplabel.classList.remove("inp-display")
                 icon.classList.remove("icon-opacity");
-                
+
             };
         })
 
@@ -332,14 +332,25 @@ window.onload = () => {
 
 
     let prev
+    let again = true
     for (let i = 0; i < musicbtn.length; i++) {
         musicbtn[i].onclick = () => {
 
+
             if (prev != undefined) {
                 stopAllMusic(prev)
+                musicbtn[prev].classList.remove('btn-border')
+
             }
-            prev = i
+
+            musicbtn[i].classList.add('btn-border')
             playMusic(i)
+
+            if (prev === i) {
+                stopAllMusic(i)
+            }
+
+            prev = i
 
         }
 
@@ -364,11 +375,11 @@ window.onload = () => {
             arr[playlist[prev].no[j]].pause();
             inputvol[playlist[prev].no[j]].classList.remove("inp-display")
             icon[playlist[prev].no[j]].classList.remove("icon-opacity");
-            
+
         }
     }
 
-    
+
     //.....blogStorage
     // function save(){
     const textBtn = $('#save-choice')
@@ -377,7 +388,7 @@ window.onload = () => {
         // let textValue = text.value
 
         if (text.value === '') {
-            popupAlert('empty file')
+            popupAlert('empty file', 2)
         }
 
         else {
@@ -398,7 +409,7 @@ window.onload = () => {
             });
         }
     }
-    
+
     fillFilesOnRefresh();
     function fillFiles() {
         if (localStorage.getItem('blog') != null) {
@@ -428,7 +439,7 @@ window.onload = () => {
 
         $('#save').onclick = () => {
             if (inpName.value === '') {
-                popupAlert('Please name it ')
+                popupAlert('Please name it ',2)
             }
 
             else {
@@ -444,7 +455,8 @@ window.onload = () => {
                 fileListContainer.innerHTML = ''
                 //update localstorage and filelist so that you delete newly created list
                 fillFiles();
-                popupAlert('Item is saved')
+                popupAlert('Item is saved',2)
+                text.value=''
                 inpName.value = ''
                 form.style = 'display:none'
 
@@ -463,7 +475,7 @@ window.onload = () => {
         fileList = $All(".file-items")
         for (let i = 0; i < fileList.length; i++) {
             fileList[i].onclick = () => {
-    
+
                 let items = localStorage.getItem('blog');
                 let val = JSON.parse(items);
 
@@ -480,10 +492,10 @@ window.onload = () => {
 
         const deleteIcon = $All('.delete-icon');
         fileList = $All(".file-items")
-  
+
         for (let i = 0; i < fileList.length; i++) {
             deleteIcon[i].addEventListener("click", function () {
-               fileList[i].remove();
+                fileList[i].remove();
                 storageArray.splice(i, 1);
                 let items = localStorage.getItem('blog')
                 let val = JSON.parse(items)
@@ -501,12 +513,17 @@ window.onload = () => {
     //run in starting of window
     deleteFiles()
 
-//popup
+    //popup
     const note = $("#note")
-    function popupAlert(about) {
+    function popupAlert(about, sec) {
         const popUpbox = document.createElement('div')
-        popUpbox.innerHTML = `<div class='popup-box'> ${about} </div>`
+        popUpbox.innerHTML = `<div> ${about} </div>`
+        popUpbox.className = "popup-box"
         note.appendChild(popUpbox)
+        popUpbox.style = `animation: popslide ${sec}s forwards; `
+        setTimeout(function () {
+            popUpbox.remove();
+        }, sec * 1000)
 
     }
 
