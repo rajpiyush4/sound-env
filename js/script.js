@@ -1,37 +1,79 @@
 window.onload = () => {
+    const $ = document.querySelector.bind(document);
+    const $All = document.querySelectorAll.bind(document);
+    const menu = $("#menu");
+    const menuBar1 = $("#menu1");
+    const menuBar2 = $("#menu2");
+    const navPage1 = $("#nav-page1")
+    const navPage2 = $("#nav-page2")
+    const revealElement = $All(".reveal");
 
-    let $ = document.querySelector.bind(document);
-    let $All = document.querySelectorAll.bind(document);
-    let menu = $("#menu");
-    let body = $("body")
-    let menuBar1 = $("#menu1");
-    let menuBar2 = $("#menu2");
-    let navPage1 = $("#nav-page1")
-    let navPage2 = $("#nav-page2")
-    let titleContainer=$("#title-container")
-    const header=$("header")
-    let revealElement = $All(".reveal");
-    // const title3=$(".title3")
+
     //for navigation
-    menu.onclick = () => {
-        menu.classList.toggle("rotate-menu")
-        menuBar1.classList.toggle("rotate1")
-        menuBar2.classList.toggle("rotate2")
-        navPage1.classList.toggle("toggle")
-        navPage2.classList.toggle("toggle")
+    function menuToggle() {
+        menu.onclick = () => {
+            menu.classList.toggle("rotate-menu")
+            menuBar1.classList.toggle("rotate1")
+            menuBar2.classList.toggle("rotate2")
+            navPage1.classList.toggle("toggle")
+            navPage2.classList.toggle("toggle")
 
+        }
     }
+    menuToggle()
 
+    //blog popup
+    function blogPopup() {
+        const blog = $('#blog')
+        const noteClick = $('#notepad')
+        let check = true
+        noteClick.onclick = () => {
+            if (check) {
+                blog.style = 'opacity: 1'
+                note.style = 'animation: pop 0.5s forwards ease-in-out;'
+                check = false;
+                window.scrollTo(00, 0);
+            } else {
+                blog.style = 'opacity:0;'
+                note.style = 'animation: unpop 0.5s forwards ease-in-out;'
+                check = true
+            }
+        }
+    }
+    blogPopup()
 
-    
+    //dropdown in blog
+    function dropdown() {
+        document.addEventListener('click', e => {
+            const isDropdownButton = e.target.matches('[data-dropdown-button]')
+            // console.log(isDropdownButton)
+            // console.log(e.target.closest('[data-dropdown]'))
+            if (!isDropdownButton && e.target.closest('[data-dropdown]') != null) return
+
+            let currentDropdown
+            if (isDropdownButton) {
+                currentDropdown = e.target.closest('[data-dropdown]')
+                currentDropdown.classList.toggle('active')
+            }
+
+            $All('[data-dropdown].active').forEach(dropdown => {
+                if (dropdown == currentDropdown) return
+                dropdown.classList.remove('active')
+
+            })
+
+        })
+    }
+    dropdown()
+
 
     //for revealing animation
-    
     setTimeout(() => {
         for (let i = 0; i < revealElement.length; i++) {
             revealElement[i].classList.add("revealed")
         }
     }, 200);
+
 
     let boxes = [
         {
@@ -128,7 +170,7 @@ window.onload = () => {
             icon: "./svg/library.svg",
             sound: "./sounds/forest.mp3",
             volIcon: "./svg/volume_up_black_24dp.svg"
-        
+
         },
         {
             num: 12,
@@ -136,23 +178,22 @@ window.onload = () => {
             icon: "./svg/snowing.svg",
             sound: "./sounds/snowfall.m4a",
             volIcon: "./svg/volume_up_black_24dp.svg"
-        
+
         }
 
     ]
-        let arr=[];
 
+    //creating audio files
+    let arr = [];
     for (const i of boxes) {
         let box = document.createElement("div");
         box.classList = "box";
         // box.classList ="box-show"
         sounds.appendChild(box)
         let audio = document.createElement("audio")
-         arr.push(audio)
-         audio.setAttribute('preload','none')
-        audio.classList=`actuallysound`;
+        arr.push(audio)
+        audio.classList = `actuallysound`;
         let icon = document.createElement("img")
-        icon.setAttribute('loading','lazy')
         icon.src = i.icon;
         icon.classList = "icon";
         box.appendChild(icon)
@@ -164,16 +205,19 @@ window.onload = () => {
         inplabel.classList = "inputvol"
         inplabel.type = 'range'; inplabel.min = 0; inplabel.max = 1; inplabel.step = .1; inplabel.value = .7;
         box.appendChild(inplabel)
+
         icon.addEventListener("click", () => {
             if (audio.paused) {
                 audio.play();
                 inplabel.classList.add("inp-display")
                 icon.classList.add("icon-opacity");
+                box.classList.add('in-boxshadow')
             }
             else if (audio.play) {
                 audio.pause();
                 inplabel.classList.remove("inp-display")
                 icon.classList.remove("icon-opacity");
+                
             };
         })
 
@@ -183,38 +227,40 @@ window.onload = () => {
 
 
     }
-    let line =$All(".line")
-    let box=$All(".box")
 
 
-    const observer=new IntersectionObserver(
-        entries =>{
-            entries.forEach(entry =>{
+    //intersection observer for audio boxes 
+    let box = $All(".box")
+    const observer = new IntersectionObserver(
+        entries => {
+            entries.forEach(entry => {
                 entry.target.classList.toggle("box-show", entry.isIntersecting)
-                
+
             })
 
         },
         {
-            threshold: 0
+            threshold: 0.7
         }
-       
+
     )
     box.forEach(card => {
         observer.observe(card)
     })
-   
 
 
-    let time = document.getElementById("time")
-    let seconds = document.getElementById("seconds")
-    let ss = document.getElementById("ss")
-    let se_dots = document.querySelector(".se_dots")
+
+    //time function
+
+    let time = $("#time")
+    let seconds = $("#seconds")
+    let ss = $("#ss")
+    let se_dots = $(".se_dots")
+
 
     let interval = null;
     let status = true;
     let sec = 0;
-
     const stopwatch = () => {
         sec++;
         // if (sec % 60 === 0) {
@@ -233,32 +279,36 @@ window.onload = () => {
 
     }
 
+
     function startStop() {
         if (status) {
+
             interval = window.setInterval(start, 1000)
             status = false
-            document.querySelector(".circle").style="--clr:#212121"
-            seconds.style="color:#212121"
+            $(".circle").style = "--clr:hsl(0, 0%, 0%)"
+            seconds.style = "color:hsl(0, 0%, 0%)"
         }
         else {
             clearInterval(interval);
             status = true
-            document.querySelector(".circle").style="--clr:hsl(0, 0%, 96%)"
-            seconds.style="color:hsl(0, 0%, 96%)"
+            $(".circle").style = "--clr:hsl(0, 0%, 60%)"
+            seconds.style = "color:hsl(0, 0%, 60%)"
         }
     }
     time.addEventListener("click", startStop);
 
+
+    //creating music playlist
     const playlist = [
         {
             id: 0,
             name: 'relax',
-            no: [0, 1, 3,4]
+            no: [0, 1, 3, 4]
         },
         {
             id: 1,
             name: 'focus',
-            no: [5, 4, 8,10]
+            no: [5, 4, 8, 10]
         },
         {
             id: 2,
@@ -268,7 +318,7 @@ window.onload = () => {
         {
             id: 3,
             name: 'study',
-            no: [4, 7,11]
+            no: [4, 7, 11]
         },
         {
             id: 4,
@@ -276,31 +326,192 @@ window.onload = () => {
             no: [1, 4, 5]
         }
     ]
-    let musicbtn=$All(".music-btn")
-    let inputvol=$All(".inputvol")
-    let icon=$All(".icon")
-    
-    for(let i=0; i<musicbtn.length;i++){
-        musicbtn[i].onclick = () => {  
+    let musicbtn = $All(".music-btn")
+    let inputvol = $All(".inputvol")
+    let icon = $All(".icon")
 
-            // console.log(playlist[i].no[0])
-            for(let j=0; j<playlist[i].no.length;j++){
-                
-                    if (arr[playlist[i].no[j]].paused) {
-                          arr[playlist[i].no[j]].play();
-                    inputvol[playlist[i].no[j]].classList.add("inp-display")
-                    icon[playlist[i].no[j]].classList.add("icon-opacity");
-                    }
-                  else if (arr[playlist[i].no[j]].play) {
-                    arr[playlist[i].no[j]].pause();
-                    inputvol[playlist[i].no[j]].classList.remove("inp-display")
-                    icon[playlist[i].no[j]].classList.remove("icon-opacity");
-                  }
-                
+
+    let prev
+    for (let i = 0; i < musicbtn.length; i++) {
+        musicbtn[i].onclick = () => {
+
+            if (prev != undefined) {
+                stopAllMusic(prev)
             }
+            prev = i
+            playMusic(i)
+
+        }
+
+    }
+
+    function playMusic(point) {
+        for (let j = 0; j < playlist[point].no.length; j++) {
+
+            arr[playlist[point].no[j]].play();
+            inputvol[playlist[point].no[j]].classList.add("inp-display")
+            icon[playlist[point].no[j]].classList.add("icon-opacity");
+
+
+        }
+
+
+    }
+
+    function stopAllMusic(prev) {
+        for (let j = 0; j < playlist[prev].no.length; j++) {
+
+            arr[playlist[prev].no[j]].pause();
+            inputvol[playlist[prev].no[j]].classList.remove("inp-display")
+            icon[playlist[prev].no[j]].classList.remove("icon-opacity");
+            
         }
     }
 
+    
+    //.....blogStorage
+    // function save(){
+    const textBtn = $('#save-choice')
+    const text = $('#textarea')
+    textBtn.onclick = () => {
+        // let textValue = text.value
+
+        if (text.value === '') {
+            popupAlert('empty file')
+        }
+
+        else {
+            setId()
+        }
+    }
+
+    let storageArray = []
+    const fileListContainer = $("#files-list-container");
+    function fillFilesOnRefresh() {
+        if (localStorage.getItem('blog') != null) {
+            let items = localStorage.getItem('blog');
+            let val = JSON.parse(items);
+            val.forEach((element) => {
+                fileListContainer.innerHTML += `<div class='file-items'>${element.name} <span class='delete-icon' ></span></div>`
+                //push in it so the stored files not get deleted on adding new files after refreshing window
+                storageArray.push(element)
+            });
+        }
+    }
+    
+    fillFilesOnRefresh();
+    function fillFiles() {
+        if (localStorage.getItem('blog') != null) {
+            let items = localStorage.getItem('blog')
+            let val = JSON.parse(items)
+            val.forEach((element) => {
+                fileListContainer.innerHTML += `<div class='file-items'>${element.name} <span class='delete-icon'></span></div>`
+                //not pushing here so that on adding files again and again it will not write in file list for existing fills again
+                // storageArray.push(element)
+                // deleteFiles()
+            });
+        }
+
+    }
+    const form = $('#form')
+    const inpName = $('#inp-name')
+
+
+    function setId() {
+        form.style = 'display:flex'
+        inpName.focus();
+
+        $('#cancel').onclick = () => {
+            form.style = 'display:none'
+            inpName.value = '';
+        }
+
+        $('#save').onclick = () => {
+            if (inpName.value === '') {
+                popupAlert('Please name it ')
+            }
+
+            else {
+                // localStorage.setItem(inpName.value, text.value)
+                const obj = {
+                    name: inpName.value,
+                    value: text.value
+                }
+                storageArray.push(obj)
+                let stringArray = JSON.stringify(storageArray)
+
+                localStorage.setItem('blog', stringArray)
+                fileListContainer.innerHTML = ''
+                //update localstorage and filelist so that you delete newly created list
+                fillFiles();
+                popupAlert('Item is saved')
+                inpName.value = ''
+                form.style = 'display:none'
+
+                runClickFile();
+                deleteFiles();
+
+            }
+
+        }
+
+    }
+
+    let fileList = $All(".file-items");
+
+    function runClickFile() {
+        fileList = $All(".file-items")
+        for (let i = 0; i < fileList.length; i++) {
+            fileList[i].onclick = () => {
+    
+                let items = localStorage.getItem('blog');
+                let val = JSON.parse(items);
+
+                try {
+                    text.value = val[i].value;
+                }
+                catch (e) { }
+            }
+        }
+    }
+    runClickFile();
+
+    function deleteFiles() {
+
+        const deleteIcon = $All('.delete-icon');
+        fileList = $All(".file-items")
+  
+        for (let i = 0; i < fileList.length; i++) {
+            deleteIcon[i].addEventListener("click", function () {
+               fileList[i].remove();
+                storageArray.splice(i, 1);
+                let items = localStorage.getItem('blog')
+                let val = JSON.parse(items)
+                // console.log(val)
+                val.splice(i, 1);
+                const stringVal = JSON.stringify(val)
+                localStorage.removeItem('blog');
+                // console.log(stringVal)
+                localStorage.setItem('blog', stringVal);
+
+
+            })
+        }
+    }
+    //run in starting of window
+    deleteFiles()
+
+//popup
+    const note = $("#note")
+    function popupAlert(about) {
+        const popUpbox = document.createElement('div')
+        popUpbox.innerHTML = `<div class='popup-box'> ${about} </div>`
+        note.appendChild(popUpbox)
+
+    }
 
 
 }
+
+
+
