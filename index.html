@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,10 +9,11 @@
 </head>
 <link rel="stylesheet" href="./css/main.css">
 <link rel="stylesheet" href="./css/queries.css">
+
 <body>
     <!-- timer -->
     <div id="time">
-        <div class="circle" style="--clr:whitesmoke;">
+        <div class="circle" >
             <div class="dots se_dots"></div>
             <svg>
                 <circle cx="70" cy="70" r="70"></circle>
@@ -20,46 +22,78 @@
             <div id="seconds">0</div>
         </div>
     </div>
-<!-- navpage -->
+
+
+    <!-- navpage -->
     <div id="nav-page1">
         <ul>
-            <li>HOME
+            <li class="lined-on">HOME
                 <span class="line"></span>
             </li>
-            <li>ABOUT
+            <li class="lined-on">TEXT-EDITOR
                 <span class="line"></span>
             </li>
-            <li>MORE
-                <span class="line"></span>
-            </li>
+
         </ul>
     </div>
     <div id="nav-page2"></div>
+
+
 
     <!-- menu -->
     <div id="menu">
         <div id="menu1"></div>
         <div id="menu2"></div>
     </div>
+
     <header>
         <div id="logo">Soul</div>
         <div id="notepad"></div>
     </header>
-    <hr style="position:fixed;width: 100%;">
-    
+    <!-- <hr style="position:fixed;top:4rem;width: 100%;"> -->
+
     <main>
+        <div id="blog" data-width="0">
+
+            <div id="note">
+
+                <div id="note-header">
+
+                    <h2 id="note-heading">NOTES</h2>
+
+                    <div id="note-header-btn">
+
+                        <div id="select-files" data-dropdown>
+                            <button class="link" data-dropdown-button>FILES</button>
+                            <div id="files-list-container">
+
+                            </div>
+                        </div>
+
+                        <button id="save-choice">SAVE</button>
+                    </div>
+                </div>
+                <div id="form">
+                    <input id="inp-name" placeholder='name of file' />
+                    <div id="form-btns">
+                        <button id="save">save</button>
+                        <button id="cancel">cancel</button>
+                    </div>
+                </div>
+
+                <textarea name="" id="textarea"></textarea>
+
+            </div>
+        </div>
+
         <section id="title-container">
-            <!-- <div id="container">
-                <span class="btn-outline"></span>
-                <span class="btn"></span>
-        </div> -->
-           
-            <!-- <span class="reveal-parent title1">
-                <span class="reveal">S</span>
-            </span>
-            <span class="reveal-parent title2">
-                <span class="reveal">oul</span>
-            </span> -->
+            <div id="soul-bg">
+                <span>S</span>
+                <span>O</span>
+                <span>U</span>
+                <span>L</span>
+            </div>
+
             <span class="reveal-parent title3">
                 <span class="reveal">-Your digital place for focus.
                     Mix different sounds and create your perfect
@@ -68,6 +102,7 @@
         </section>
 
         <section id="music-container">
+            <h2><span>Work</span>  <span>Study</span> <span>Relax</span> </h2>
             <div id="btn-container">
                 <button class="music-btn">relax</button>
                 <button class="music-btn">focus</button>
@@ -78,7 +113,28 @@
             <div id="sounds"></div>
         </section>
     </main>
+    
+    <footer>
 
-    <script src="./js/script.js"></script>
+        <div>
+            <div>BUILT BY: </div>
+            <div>PIYUSH RAJ</div>
+        </div>
+        <div>
+            SOUL
+        </div>
+        <div>
+           <div class="lined-on footer-link"><a href="https://twitter.com/piyushr001?t=u81ot7YQiqDoBMmF80FTpw&amp;s=08" target="_blank">twitter</a> 
+             <span class="line footer-link"></span></div> <br><br>
+           <div class="lined-on footer-link"><a href="https://github.com/rajpiyush4" target="_blank">github</a> 
+             <span class="line"></span></div>  <br><br>
+           <div class="lined-on footer-link"><a href="https://www.instagram.com/_piyush4/" target="_blank">instagram</a> 
+             <span class="line"></span></div> 
+        </div>
+    </footer>
+
+    <script defer src="./js/script.js"></script>
+    <!-- <script defer src="./js/blog.js"></script> -->
 </body>
+
 </html>
