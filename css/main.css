@@ -12,7 +12,7 @@
 :root {
 
     --navPagefontcolor: white;
-    --navHeight: 5rem;
+    --navHeight: 4rem;
     --bodyColor: #2b4446;
     --primaryColor: whitesmoke;
     --navPageColor: #212121;
@@ -59,6 +59,24 @@ body {
 a{
     text-decoration: none;
     color: inherit;
+}
+
+#canvas{
+    position: absolute;
+    top: var(--navHeight);
+    width: 100%;
+    height: 91%;
+    background-color: #1f1f1f;
+    z-index: 900;
+    display: none;
+}
+
+#gui-container{
+    position: absolute;
+    top: var(--navHeight);
+    right: 2rem;
+    z-index: 990;
+    display: none;
 }
 
 #time {
@@ -163,6 +181,7 @@ header #notepad {
     background-size: cover;
     margin-right: 4.5rem;
     margin-top: .8rem;
+    cursor: pointer;
 }
 
 #menu {
@@ -172,7 +191,7 @@ header #notepad {
     z-index: 1000;
     border-radius: 50%;
     transition: 0.5s;
-
+    cursor: pointer;
 }
 
 #menu1 {
@@ -192,6 +211,18 @@ header #notepad {
     border-radius: 20px;
     transition: 0.2s 0.2s ease-out;
 
+}
+
+header #visualizer{
+    position: absolute;
+    right: 8rem;
+    top: 1.5rem;
+    width: 30px;
+    height: 30px;
+    background-image: url('../svg/free_icon_1.svg');
+    background-size: cover;
+    cursor: pointer;
+    
 }
 
 .rotate-menu {
@@ -692,6 +723,11 @@ color: rgb(100, 112, 66);
     box-shadow: none;
     border: #212121 2px solid;
 }
+
+/* .music-btn:active {
+    box-shadow: none;
+    background: transparent;
+} */
 
 footer{
     background-color: rgb(255 255 255);
