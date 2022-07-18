@@ -1,0 +1,8 @@
+<svg version="1.0" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="100px" height="100px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
+<path d="M60,36.666H40c-1.833,0-3.333,1.501-3.333,3.334v20c0,1.832,1.5,3.334,3.333,3.334h20c1.833,0,3.333-1.502,3.333-3.334V40
+	C63.333,38.167,61.833,36.666,60,36.666z M56.667,56.666H43.333V43.333h13.334V56.666z" id="id_101" style="fill: rgb(255, 255, 255);"></path>
+<rect x="70" y="40" width="6.667" height="20" id="id_102" style="fill: rgb(247, 247, 247);"></rect>
+<rect x="83.333" y="43.333" width="6.667" height="13.333" id="id_103" style="fill: rgb(245, 245, 245);"></rect>
+<rect x="23.333" y="40" width="6.667" height="20" id="id_104" style="fill: rgb(240, 240, 240);"></rect>
+<rect x="10" y="43.333" width="6.667" height="13.333" id="id_105" style="fill: rgb(247, 254, 255);"></rect>
+</svg>
